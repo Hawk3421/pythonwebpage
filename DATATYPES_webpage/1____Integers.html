@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center {
+  text-align: center;
+  color: CornflowerBlue ;
+}
+</style>
+</head>
+<body>
+<h1 class="center">---------------------------------------------Basic Data Types in Python----------------------------------------------------------</h1>
+<p style="font-size:20px;color:Chocolate;"">(1)Integers</p> 
+</body>
+</html>
+<b> <p> </p> </b></h1>
+(A)In Python 3, there is effectively no limit to how long an integer value can be. Of course, it is constrained by the amount of memory your system has, as are all things, but beyond that an integer can be as long as you need it to be:<br>
+For example:
+<br>Python
+<br> <p style="color:red;"> >>>print(123123123123123123123123123123123123123123123123 + 1)
+<br> 123123123123123123123123123123123123123123123124
+<p>(B)Python interprets a sequence of decimal digits without any prefix to be a decimal number:<br>
+For example:<br>
+<br>Python 
+<br><p style="color:red;"> >>>print(10)
+<br>10
+</p>
+The following strings can be prepended to an integer value to indicate a base other than 10:-
+
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 2px solid DarkOrange;
+  border-radius: 10px; 
+  border-spacing: 25;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 6px solid DarkOrange;
+  padding: 20px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+
+<table class="roundedCorners">
+  <tr>
+		<th>Prefix</th>
+		<th>Interpretation</th>
+                <th>Base</th>
+	</tr>
+	<tr>
+		<td>0b (zero + lowercase letter 'b')
+                0B (zero + uppercase letter 'B')</td>
+		<td>Binary</td>
+                <td>2</td>
+	</tr>
+	<tr>
+		<td>0o (zero + lowercase letter 'o')
+                 0O (zero + uppercase letter 'O')</td>
+		<td>Octal</td>
+                <td>8</td>
+	</tr>
+</tr>
+	<tr>
+		<td>0x (zero + lowercase letter 'x')
+                0X (zero + uppercase letter 'X')</td>
+		<td>Hexadecimal</td>
+                 <td>16</td>
+	</tr>
+	<tr>
+
+</table>
+
+For example:
+<br>Python 
+<br> <p style="color:red;">>>>print(0o10)
+<br>8
+<br><p style="color:red;"> >>>print(0*10)
+<br>16
+<br><p style="color:red;"> >>>print(0b10)
+<br>2
+
+<p>For more information on integer values with non-decimal bases, see the following Wikipedia sites: <a href="https://en.wikipedia.org/wiki/Binary_number">Binary</a>, <a href="https://en.wikipedia.org/wiki/Octal">Octal</a>, and <a href="https://en.wikipedia.org/wiki/Hexadecimal">Hexadecimal</a>.</p>
+<p>The underlying type of a Python integer, irrespective of the base used to specify it, is called <code>int</code>:</p>
+Python 
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output"></span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mo">0o10</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mh">0x10</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+</pre></div>
+<div class="alert alert-primary" role="alert">

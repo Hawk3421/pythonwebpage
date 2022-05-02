@@ -1,0 +1,795 @@
+<html>
+<head>
+<title> Python </title>
+</head>
+<body bgcolor="Beige">
+</head>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center {
+  text-align: center;
+  color: CornflowerBlue ;
+}
+</style>
+</head>
+<body>
+<h1 class="center">---------------------------------------------Basic Data Types in Python----------------------------------------------------------</h1>
+<p style="font-size:35px;color:Chocolate;"">(1)Integers</p> 
+</body>
+</html>
+<b> <p> </p> </b></h1>
+(A)In Python 3, there is effectively no limit to how long an integer value can be. Of course, it is constrained by the amount of memory your system has, as are all things, but beyond that an integer can be as long as you need it to be:<br>
+For example:
+<br>Python
+<br> <p style="color:red;"> >>>print(123123123123123123123123123123123123123123123123 + 1)
+<br> 123123123123123123123123123123123123123123123124
+<p>(B)Python interprets a sequence of decimal digits without any prefix to be a decimal number:<br>
+For example:<br>
+<br>Python 
+<br><p style="color:red;"> >>>print(10)
+<br>10
+</p>
+The following strings can be prepended to an integer value to indicate a base other than 10:-
+
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 2px solid DarkOrange;
+  border-radius: 10px; 
+  border-spacing: 25;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 6px solid DarkOrange;
+  padding: 20px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+
+<table class="roundedCorners">
+  <tr>
+		<th>Prefix</th>
+		<th>Interpretation</th>
+                <th>Base</th>
+	</tr>
+	<tr>
+		<td>0b (zero + lowercase letter 'b')
+                0B (zero + uppercase letter 'B')</td>
+		<td>Binary</td>
+                <td>2</td>
+	</tr>
+	<tr>
+		<td>0o (zero + lowercase letter 'o')
+                 0O (zero + uppercase letter 'O')</td>
+		<td>Octal</td>
+                <td>8</td>
+	</tr>
+</tr>
+	<tr>
+		<td>0x (zero + lowercase letter 'x')
+                0X (zero + uppercase letter 'X')</td>
+		<td>Hexadecimal</td>
+                 <td>16</td>
+	</tr>
+	<tr>
+
+</table>
+
+For example:
+<br>Python 
+<br> <p style="color:red;">>>>print(0o10)
+<br>8
+<br><p style="color:red;"> >>>print(0*10)
+<br>16
+<br><p style="color:red;"> >>>print(0b10)
+<br>2
+
+<p>For more information on integer values with non-decimal bases, see the following Wikipedia sites: <a href="https://en.wikipedia.org/wiki/Binary_number">Binary</a>, <a href="https://en.wikipedia.org/wiki/Octal">Octal</a>, and <a href="https://en.wikipedia.org/wiki/Hexadecimal">Hexadecimal</a>.</p>
+<p>The underlying type of a Python integer, irrespective of the base used to specify it, is called <code>int</code>:</p>
+Python 
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output"></span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mo">0o10</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mh">0x10</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+</pre></div>
+<div class="alert alert-primary" role="alert">
+</p>
+
+
+
+<p style="font-size:30px;color:blue;"">(2)Floating-Point Numbers:-</p>
+<b> <p> </p> </b></h1>
+The float type in Python designates a floating-point number.<br>
+float values are specified with a decimal point. Optionally, the character e or E followed by a positive or negative integer may be appended to specify scientific notation:
+<br>Python          
+<br> <p style="color:red;"> >>> 4.2        
+<br>4.2             
+<br>----------------------------------------------------------------------------------------------------
+<br> <p style="color:red;">>>> type(4.2)
+<br>class 'float'
+<br>----------------------------------------------------------------------------------------------------
+<br> <p style="color:red;">>>> 4.
+<br>4.0
+<br>----------------------------------------------------------------------------------------------------
+<br> <p style="color:red;">>>> .2
+<br>0.2
+<br>----------------------------------------------------------------------------------------------------
+<br> <p style="color:red;">>>> .4e7
+<br>4000000.0
+<br>----------------------------------------------------------------------------------------------------
+<br> <p style="color:red;">>>> type(.4e7)
+<br>class 'float'
+<br>----------------------------------------------------------------------------------------------------
+<br> <p style="color:red;">>>> 4.2e-4<br>
+0.00042
+<br>----------------------------------------------------------------------------------------------------
+<b> <p> </p> </b></h1>
+<p style="font-size:25px;color:Crimson ;"">{A}Deep Dive: Floating-Point Representation<p>
+[A]The following is a bit more in-depth information on how Python represents floating-point numbers internally.
+<p> [B]You can readily use floating-point numbers in Python without understanding them to this level, so don’t worry if this seems overly complicated. The information is presented here in case you are curious.
+<br>
+<br>
+[C]Almost all platforms represent Python float values as 64-bit “double-precision” values, according to the IEEE 754 standard. In that case, the maximum value a floating-point number can have is approximately 1.8 ? 10308. Python will indicate a number greater than that by the string inf:
+<br>
+<br> <p style="color:red;"> >>> 1.79e308<br>
+1.79e+308 
+<br>----------------------------------------------------------------------------------------------------
+<br> <p style="color:red;">>>> 1.8e308<br>
+inf
+<br>----------------------------------------------------------------------------------------------------
+<b> <p> </p> </b></h1>
+The closest a nonzero number can be to zero is approximately 5.0 ? 10-324. Anything closer to zero than that is effectively zero::
+<br> <p style="color:red;">>>> 5e-324
+<br>5e-324
+<br> <p style="color:red;">>>> 1e-325
+<br>0.0
+<p style="font-size:15px;color:blue;""<p><strong>Further Reading:</strong>{ For additional information on floating-point representation in Python and the potential pitfalls involved, see <a href="https://docs.python.org/3.6/tutorial/floatingpoint.html">Floating Point Arithmetic: Issues and Limitations</a> in the Python documentation}.</p>
+</div></p>
+</p>
+
+
+
+<p style="font-size:35px;color:blue;"">(3)Complex Numbers</p>
+<b> <p> </p> </b></h1>
+<p style="font-size:25px;color:blue;"">Complex numbers are specified as {"real part"+"imaginary part"}</p>
+Python Example:- 
+<br> <p style="color:red;"> >>> 2+3j
+<br>2+3j
+<br>-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+<p style="color:red;">>>> type(2+3j)
+<br>class 'complex'<br>
+</p>
+
+
+</p>
+
+<p style="font-size:35px;color:SlateGray;"">(4)Strings:-</p>
+
+Strings are sequences of character data. The string type in Python is called str..<br>
+String literals may be delimited using either single or double quotes<br>
+All the characters between the opening delimiter and matching closing delimiter are part of the string:<br>
+<br>Python example:-
+<br><p style="color:red;"> >>> print("I am String.")
+<br>I am String.
+<br>----------------------------------------------------------------------------------------------------------------------------------------------------------
+<br><p style="color:red;">>>> type(I am String.)
+<br>class 'str'
+<br>----------------------------------------------------------------------------------------------------------------------------------------------------------
+<p style="font-size:20px;color:SlateGray;"">()A string in Python can contain as many characters as you wish. The only limit is your machine’s memory resources. A string can also be empty:</p>
+Python example:-
+<p style="color:red;"> >>> ''
+<br>''
+<br>----------------------------------------------------------------------------------------------------------------------------------------------------------
+</p>Python example:-
+<br> <p style="color:red;">>>> print("I am String Contains a Single Quote(')character,')
+<br>Syntax error:invalid syntax
+<br>----------------------------------------------------------------------------------------------------------------------------------------------------------
+</p>
+As you can see, that doesn’t work so well. The string in this example opens with a single quote, so Python assumes the next single quote, the one in parentheses which was intended to be part of the string, is the closing delimiter. The final single quote is then a stray and causes the syntax error shown.
+<p>
+If you want to include either type of quote character within the string, the simplest way is to delimit the string with the other type. If a string is to contain a single quote, delimit it with double quotes and vice versa:
+<br>Python example:-<br> 
+<br><p style="color:red;"> >>> print("I am String Contains a Single Quote(')character")
+<br>This string contains a single quote () character.
+<br>----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<br><p style="color:red;"> >>> print("I am String Contains a Single Quote(")character")
+<br>This string contains a Double quote (") character.
+<br>----------------------------------------------------------------------------------------------------------------------------------------------------------
+</p>
+
+<p style="font-size:35px;color:blue;"">TYPES OF STRINGS :-</p>
+<p style="font-size:25px;color:Turquoise;"">[A]Escape Sequences in Strings</p>
+<b> <p> </p> </b></h1>
+Escape Sequences in Strings
+Sometimes, you want Python to interpret a character or sequence of characters within a string differently. This may occur in one of three ways:<br>
+<p>
+{1}You may want to suppress the special interpretation that certain characters are usually given within a string.
+<p>
+{2}You may want to apply special interpretation to characters in a string which would normally be taken literally.
+<p>
+{3}You can accomplish this using a backslash (\) character. A backslash character in a string indicates that one or more characters that follow it should be treated specially.
+<br>
+<p style="font-size:25px;color:SpringGreen ;"">(This is referred to as an escape sequence, because the backslash causes the subsequent character sequence to “escape” its usual meaning.)
+<p>
+
+<p style="font-size:30px;color:Sienna ;"">[B]Raw Strings:-<br>
+<p style="font-size:20px;color:Plum ;"">A raw string literal is preceded by r or R, which specifies that escape sequences in the associated string are not translated.<p> The backslash character is left in the string :
+<br>Python Example:-
+<br><p style="color:red;"> >>>print('foo\nbar')
+<br>foo
+bar<br>
+<br><p style="color:red;">>>> print(r'foo\nbar')
+<br>foo\nbar<br>
+<br><p style="color:red;">>>> print('foo\\bar')
+<br>foo\bar<br>
+<br><p style="color:red;">>>> print(R'foo\\bar')
+<br>foo\\bar<br>
+</p>
+
+
+<p style="font-size:30px;color:Wheat ;"">[C]Triple-Quoted Strings:-</p>
+There is yet another way of delimiting strings in Python. 
+<p>Triple-quoted strings are delimited by matching groups of three single quotes or three double quotes. <p>
+Escape sequences still work in triple-quoted strings, but single quotes, double quotes, and newlines can be included without escaping them. This provides a convenient way to create a string with both single and double quotes in it:<br>
+<br>Python Example:- 
+<br><p style="color:red;"> >>> print('''This string has a single (') and a double (") quote.''')
+<br>This string has a single (') and a double (") quote.<br>
+<b> <p> </p> </b></h1>
+Because newlines can be included without escaping them, this also allows for multiline strings:
+<b> <p> </p> </b></h1>
+PythonExample:-
+<br><p style="color:red;">>>> print("""This is a
+string that spans
+across several lines""")
+<br>This is a
+string that spans
+across several lines<br>
+</p>
+
+
+
+<p style="font-size:35px;color:Lime ;"">(5)Boolean Type, Boolean Context, and “Truthiness” :-</p>
+<b> <p> </p> </b></h1>
+Python 3 provides a Boolean data type. Objects of Boolean type may have one of two values, True or False:. 
+<br>
+<br>Python Example:-
+<br><p style="color:red;"> >>>type(True)
+<br>class 'bool'
+<br> <p style="color:red;">>>>type(False)
+<br>class 'bool'<br>
+<p>
+As you will see in upcoming tutorials, expressions in Python are often evaluated in Boolean context, meaning they are interpreted to represent truth or falsehood. A value that is true in Boolean context is sometimes said to be “truthy,” and one that is false in Boolean context is said to be “falsy.” (You may also see “falsy” spelled “falsey.”)<p>
+<p>
+The “truthiness” of an object of Boolean type is self-evident: Boolean objects that are equal to True are truthy (true), and those equal to False are falsy (false). But non-Boolean objects can be evaluated in Boolean context as well and determined to be true or false.
+<p>
+You will learn more about evaluation of objects in Boolean context when you encounter logical operators in the upcoming tutorial on operators and expressions in Python.
+<b> <p> </p> </b></h1>
+</p>
+<p style="font-size:35px;color:Crimson;"">(6)Built-In Functions:-<p> 
+<p style="font-size:15px;color:blue;"">The Python interpreter supports many functions that are built-in:___68___, as of Python 3.6.
+<p> You will cover many of these in the following discussions, as they come up in context.
+<p>For now, a brief overview follows, just to give a feel for what is available. 
+<p>See the<a href="https://docs.python.org/3.6/library/functions.html"> Python documentation on built-in functions</a> for more detail. Many of the following descriptions refer to topics and concepts that will be discussed in future tutorials.</p>
+</p>
+<h1 style="background-color:GreenYellow ;"> &nbsp;&nbsp;&nbsp;&nbsp;(7)Math Data Type:- </h1>
+
+<table style="width:350%;text-align:left;background-color:white;>
+<table style="width:350%;text-align:left;background-color:white;>
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 10px solid DarkOrange;
+  border-radius: 20px; 
+  border-spacing: 15;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 2px solid DarkOrange;
+  padding: 4px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+
+<table class="roundedCorners">
+  <tr>
+		<th>Function</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>abs()</td>
+		<td>Returns absolute value of a number</td>
+	</tr>
+	<tr>
+		<td>divmod()</td>
+		<td>Returns quotient and remainder of integer division</td>
+	</tr>
+</tr>
+	<tr>
+		<td>pow()</td>
+		<td>Raises a number to a power</td>
+	</tr>
+	<tr>
+		<td>min()</td>
+		<td>Returns the smallest of the given arguments or items in an iterable</td>
+	</tr>
+</tr>
+	<tr>
+		<td>sums()</td>
+		<td>Sums the items of an iterable</td>
+	</tr>
+
+</table>
+</p>
+</p>
+</p>
+</p>
+
+
+
+
+<h1 style="background-color:Lime;"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(8)Type Conversion:- </h1>
+<table class="roundedCorners">
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ascii()</code></td>
+<td>Returns a string containing a printable representation of an object</td>
+</tr>
+<tr>
+<td><code>bin()</code></td>
+<td>Converts an integer to a binary string</td>
+</tr>
+<tr>
+<td><code>bool()</code></td>
+<td>Converts an argument to a Boolean value</td>
+</tr>
+<tr>
+<td><code>chr()</code></td>
+<td>Returns string representation of character given by integer argument</td>
+</tr>
+<tr>
+<td><code>complex()</code></td>
+<td>Returns a complex number constructed from arguments</td>
+</tr>
+<tr>
+<td><code>float()</code></td>
+<td>Returns a floating-point object constructed from a number or string</td>
+</tr>
+<tr>
+<td><code>hex()</code></td>
+<td>Converts an integer to a hexadecimal string</td>
+</tr>
+<tr>
+<td><code>int()</code></td>
+<td>Returns an integer object constructed from a number or string</td>
+</tr>
+<tr>
+<td><code>oct()</code></td>
+<td>Converts an integer to an octal string</td>
+</tr>
+<tr>
+<td><code>ord()</code></td>
+<td>Returns integer representation of a character</td>
+</tr>
+<tr>
+<td><code>repr()</code></td>
+<td>Returns a string containing a printable representation of an object</td>
+</tr>
+<tr>
+<td><code>str()</code></td>
+<td>Returns a string version of an object</td>
+</tr>
+<tr>
+<td><code>type()</code></td>
+<td>Returns the type of an object or creates a new type object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+
+
+<h1 style="background-color:Lightblue;"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(9)&nbsp;&nbsp;&nbsp;--Iterables and Iterators-- </h1>
+
+<table class="roundedCorners">
+
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+<tbody>
+<tr>
+<td><code>all()</code></td>
+<td>Returns <code>True</code> if all elements of an iterable are true</td>
+</tr>
+<tr>
+<td><code>any()</code></td>
+<td>Returns <code>True</code> if any elements of an iterable are true</td>
+</tr>
+<tr>
+<td><code>enumerate()</code></td>
+<td>Returns a list of tuples containing indices and values from an iterable</td>
+</tr>
+<tr>
+<td><code>filter()</code></td>
+<td>Filters elements from an iterable</td>
+</tr>
+<tr>
+<td><code>iter()</code></td>
+<td>Returns an iterator object</td>
+</tr>
+<tr>
+<td><code>len()</code></td>
+<td>Returns the length of an object</td>
+</tr>
+<tr>
+<td><code>map()</code></td>
+<td>Applies a function to every item of an iterable</td>
+</tr>
+<tr>
+<td><code>next()</code></td>
+<td>Retrieves the next item from an iterator</td>
+</tr>
+<tr>
+<td><code>range()</code></td>
+<td>Generates a range of integer values</td>
+</tr>
+<tr>
+<td><code>reversed()</code></td>
+<td>Returns a reverse iterator</td>
+</tr>
+<tr>
+<td><code>slice()</code></td>
+<td>Returns a <code>slice</code> object</td>
+</tr>
+<tr>
+<td><code>sorted()</code></td>
+<td>Returns a sorted list from an iterable</td>
+</tr>
+<tr>
+<td><code>zip()</code></td>
+<td>Creates an iterator that aggregates elements from iterables</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+
+
+<h1 style="background-color:Orange;"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(10)&nbsp;&nbsp;&nbsp;Composite Data Type:-</h1>
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 2px solid PaleTurquoise ;
+  border-radius: 55px; 
+  border-spacing: 5;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 2px solid LightSlateGrey ;
+  padding: 6px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+<div class="table-responsive">
+<table class="roundedCorners">
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bytearray()</code></td>
+<td>Creates and returns an object of the <code>bytearray</code> class</td>
+</tr>
+<tr>
+<td><code>bytes()</code></td>
+<td>Creates and returns a <code>bytes</code> object (similar to <code>bytearray</code>, but immutable)</td>
+</tr>
+<tr>
+<td><code>dict()</code></td>
+<td>Creates a <code>dict</code> object</td>
+</tr>
+<tr>
+<td><code>frozenset()</code></td>
+<td>Creates a <code>frozenset</code> object</td>
+</tr>
+<tr>
+<td><code>list()</code></td>
+<td>Constructs a <code>list</code> object</td>
+</tr>
+<tr>
+<td><code>object()</code></td>
+<td>Returns a new featureless object</td>
+</tr>
+<tr>
+<td><code>set()</code></td>
+<td>Creates a <code>set</code> object</td>
+</tr>
+<tr>
+<td><code>tuple()</code></td>
+<td>Creates a <code>tuple</code> object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+
+
+<h1 style="background-color:GreenYellow;"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(11)&nbsp;&nbsp;&nbsp;Classes, Attributes, and Inheritance:- </h1>
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 2px solid GreenYellow  ;
+  border-radius: 55px; 
+  border-spacing: 8;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 2px solid MediumSpringGreen ;
+  padding: 6px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+<div class="table-responsive">
+<table class="roundedCorners">
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classmethod()</code></td>
+<td>Returns a class method for a function</td>
+</tr>
+<tr>
+<td><code>delattr()</code></td>
+<td>Deletes an attribute from an object</td>
+</tr>
+<tr>
+<td><code>getattr()</code></td>
+<td>Returns the value of a named attribute of an object</td>
+</tr>
+<tr>
+<td><code>hasattr()</code></td>
+<td>Returns <code>True</code> if an object has a given attribute</td>
+</tr>
+<tr>
+<td><code>isinstance()</code></td>
+<td>Determines whether an object is an instance of a given class</td>
+</tr>
+<tr>
+<td><code>issubclass()</code></td>
+<td>Determines whether a class is a subclass of a given class</td>
+</tr>
+<tr>
+<td><code>property()</code></td>
+<td>Returns a property value of a class</td>
+</tr>
+<tr>
+<td><code>setattr()</code></td>
+<td>Sets the value of a named attribute of an object</td>
+</tr>
+<tr>
+<td><code>super()</code></td>
+<td>Returns a proxy object that delegates method calls to a parent or sibling class</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+<h1 style="background-color:LightCoral;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(14)&nbsp;&nbsp;Input/Output:-</h1>
+
+
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 2px solid LightCoral  ;
+  border-radius: 50px; 
+  border-spacing: 5;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 5px solid LightCoral ;
+  padding: 7px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+<div class="table-responsive">
+<table class="roundedCorners">
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format()</code></td>
+<td>Converts a value to a formatted representation</td>
+</tr>
+<tr>
+<td><code>input()</code></td>
+<td>Reads input from the console</td>
+</tr>
+<tr>
+<td><code>open()</code></td>
+<td>Opens a file and returns a file object</td>
+</tr>
+<tr>
+<td><code>print()</code></td>
+<td>Prints to a text stream or the console</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+<h1 style="background-color:LavenderBlush ;"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(13)&nbsp;Variables, References, and Scope :-</h1>
+<br>
+
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 2px solid Gray  ;
+  border-radius: 55px; 
+  border-spacing: 7;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 5px solid SlateGray ;
+  padding: 7px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+<div class="table-responsive">
+<table class="roundedCorners">
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dir()</code></td>
+<td>Returns a list of names in current local scope or a list of object attributes</td>
+</tr>
+<tr>
+<td><code>globals()</code></td>
+<td>Returns a dictionary representing the current global symbol table</td>
+</tr>
+<tr>
+<td><code>id()</code></td>
+<td>Returns the identity of an object</td>
+</tr>
+<tr>
+<td><code>locals()</code></td>
+<td>Updates and returns a dictionary representing current local symbol table</td>
+</tr>
+<tr>
+<td><code>vars()</code></td>
+<td>Returns <code>__dict__</code> attribute for a module, class, or object</td>
+</tr>
+</tbody>
+</table>
+</p>
+
+<h1 style="background-color:Moccasin ;"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(14)Miscellaneous:-</h1>
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+table.roundedCorners { 
+  border: 2px solid PeachPuff  ;
+  border-radius: 55px; 
+  border-spacing: 8;
+  }
+table.roundedCorners td, 
+table.roundedCorners th { 
+  border-bottom: 2px solid OldLace  ;
+  padding: 8px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+<div class="table-responsive">
+<table class="roundedCorners">
+<thead>
+<tr>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>callable()</code></td>
+<td>Returns <code>True</code> if object appears callable</td>
+</tr>
+<tr>
+<td><code>compile()</code></td>
+<td>Compiles source into a code or AST object</td>
+</tr>
+<tr>
+<td><code>eval()</code></td>
+<td>Evaluates a Python expression</td>
+</tr>
+<tr>
+<td><code>exec()</code></td>
+<td>Implements dynamic execution of Python code</td>
+</tr>
+<tr>
+<td><code>hash()</code></td>
+<td>Returns the hash value of an object</td>
+</tr>
+<tr>
+<td><code>help()</code></td>
+<td>Invokes the built-in help system</td>
+</tr>
+<tr>
+<td><code>memoryview()</code></td>
+<td>Returns a memory view object</td>
+</tr>
+<tr>
+<td><code>staticmethod()</code></td>
+<td>Returns a static method for a function</td>
+</tr>
+<tr>
+<td><code>__import__()</code></td>
+<td>Invoked by the <code>import</code> statement</td>
+</tr>
+</tbody>
+</table>
+</p>
+
+<h1 style="background-color:red;"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Conclusion</h1>
+<p>In this tutorial, you learned about the built-in <strong>data types</strong> and <strong></strong> Python provides.</p>
+<p>The examples given so far have all manipulated and displayed only constant values. In most programs, you are usually going to want to create objects that change in value as the program executes.</p>
+<p>Head to the next tutorial to learn about Python <strong>variables.</strong></p>
+<b> <p> </p> </b></h1>
+<br>
+<center>
+<align="right"><a href="MAINPAGE.html">Back to home page</a>
+</html>
